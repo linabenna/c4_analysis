@@ -1,0 +1,14 @@
+do-while loop 
+
+Support for do-while was added to the comiler code. The handling is relatively similar to while, 
+however, the loop body is executed first. The comiler will check for a 'while' after and evaluate 
+its expression. The management after this is the same as the general while loop.
+
+Unlike a while loop, a do-while loop's body is guaranteed to run at least once. This results in a 
+different order of operations when generating assembly or intermediate code:
+- The body executes first.
+- The condition is checked afterward.
+- The loop continues or exits based on the condition.
+
+Moreover, error handling for when a 'while' does not follow a 'do' is also added. In this case,
+the program will terminate, returning an error and a message that a while was expected after the do.

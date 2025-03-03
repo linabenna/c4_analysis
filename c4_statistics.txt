@@ -1,0 +1,73 @@
+Task 03: Code Statistics
+[Statistics on c4_annotated.c]
+
+• Lines of Code (LOC): 
+    Entire Program -  514 LOC
+
+• Cyclomatic complexity of each function:
+    next: Cyclomatic Complexity = 85
+    expr: Cyclomatic Complexity = 91
+    stmt: Cyclomatic Complexity = 15
+    main: Cyclomatic Complexity = 100
+
+• Number of functions and their sizes (in LOC):
+    1. next: 84 LOC
+    2. expr: 170 LOC
+    3. stmt: 52 LOC
+    4. main: 181 LOC
+    Number of functions = 4
+
+• Number of global variables and their usage:
+    Total number of global variables : 14
+    1. char *p: tracks current position in the source code
+    2. char *lp: another pointer for tracking position in the source code
+    3. char *data: points to the data/BSS section in memory
+    4. int *e: points to the current position in emitted code
+    5. int *le: tracks the position in emitted code
+    6. int *id: stores the current identifier being parsed
+    7. int *sym: represents the symbol table for managing identifiers
+    8. int tk: holds the current token being processed
+    9. int ival: stores the current token's integer value
+    10. int ty: holds the current expression type
+    11. int loc: tracks the local variable offset
+    12. int line: stores the current line number for error reporting
+    13. int src: flag for printing source and assembly code
+    14. int debug: flag for printing executed instructions during debugging
+
+• Number of unique tokens and their frequency:
+    Total Unique Tokens: 37 
+
+    {
+        Num = 128, Fun, Sys, Glo, Loc, Id,
+        Char, Else, Enum, If, Int, Return, Sizeof, While,
+        Assign, Cond, Lor, Lan, Or, Xor, And, Eq, Ne, Lt, Gt, Le, Ge, Shl, Shr, Add, Sub, Mul, Div, Mod, Inc, Dec, Brak
+    }
+
+    Total Tokens = 1016 + 2403 + 395 + 2214 = 6028
+    - `next()`: 1016 tokens
+    - `expr()`: 2403 tokens
+    - `stmt()`: 395 tokens
+    - `main()`: 2214 tokens
+    Average tokens per function: 1507.0
+
+• Number of branches, loops, and their nesting levels:
+    Loops - 33 while loops (no for loops)
+    Branches - 45 if-else branches
+    Highest Nesting Level - 4 in main()
+
+• Memory usage patterns (e.g., stack vs. heap allocation):
+    Total Heap Memory Allocation:
+    - Symbol Table: 256 KB
+    - Text Area: 256 KB
+    - Data Section: 256 KB
+    - Stack Area: 256 KB
+    - Source Area: 256 KB
+
+    Total heap usage: 5 (because 5 malloc calls) * 256 KB = 1.28 MB
+
+    The stack's size is indirectly controlled via the sp pointer and its adjustments, 
+    but the static variables (such as function parameters, local variables, etc.) 
+    do not exceed a few KB.
+
+    Heap memory: 1.28 MB (with dynamic memory allocated for program's core structures).
+    Stack memory: Few KB for local variables and function calls, growing dynamically.

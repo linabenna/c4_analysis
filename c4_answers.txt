@@ -1,0 +1,40 @@
+Q01 - What is the purpose of the next() function, and how does it contribute to the compilation process?
+
+next() is responsible for reading and advancing to the next token in the input stream, which is essential 
+for parsing and processing the program's syntax.During compilation, the next() function is called repeatedly 
+to retrieve tokens one by one from the source code. 
+
+Moreover, next() facilitates the parsing process by ensuring the compiler progresses sequentially through the
+source code, extracting the necessary tokens for further analysis. These tokens are then used to check for syntax
+correctness, handle declarations (such as variables, functions, and types), and manage control flow.
+-------------------------------------------------------------------------------------------------------------------
+Q02 - How does C4 handle symbol resolution (e.g., variables, functions)?
+
+C4 handles symbols with the symbol table, denoted as sym. For each symbol, the table records attributes like 
+type, class, and value. The symbol table is updated as the program processes the source code, and it is 
+referenced throughout the compilation process to resolve symbols.
+
+Each entry in the symbol table includes a field called Class, which categorizes the symbol as a variable, 
+function, or another type. 
+-------------------------------------------------------------------------------------------------------------------
+Q03 - What are the limitations of C4 as a compiler? What features of C does it not support?
+
+It does not support all C types, such as float, double, long, short, void, pointers, and 
+user-defined types (e.g., structs, enums, unions). There seems to be no code that handles type checking for 
+these types. Additionally, there is no handling for typedefs and generally, the compiler lacks robust error 
+handling for syntax or semantic errors.
+
+Lastly, handling of local and global variables is not robust. In real C, variables can have different scopes, 
+such as function scope, block scope, and global scope, but this simple compiler does not properly track and 
+enforce these scope rules.
+-------------------------------------------------------------------------------------------------------------------
+Q04 - How does C4 achieve self-hosting (i.e., compiling itself)? What are the implications of this design?
+
+C4 achieves self-hosting by implementing a minimal subset of C features necessary to compile its own 
+source code. This includes lexical analysis, expression parsing, statement parsing, code generation, 
+and a virtual machine for executing the compiled code. The inclusion of a virtual machine allows it to 
+execute the compiled code directly.
+
+The compiler is self-sustaining, written in C4 itself, ensuring it can compile its own source code. 
+It compiles itself to generate bytecode, which is then executed by the built-in virtual machine. 
+Once compiled, C4 can process its own source code and regenerate itself. 
